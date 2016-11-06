@@ -63,23 +63,24 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
         /**
          * Constructeur de document avec les attributs valorises. Par
          * defaut, le document n'est pas empruntable.
-         *   @param code Code du document
-         *   @param localisation Localisation du document
-         *   @param titre Titre du document
-         *   @param auteur Auteur du document
-         *   @param annee Annee de sortie du document
-         *   @param genre Genre du document
-         *   @throws OperationImpossible si certains arguments sont mal initialises
+         *
+         * @param code         Code du document
+         * @param localisation Localisation du document
+         * @param titre        Titre du document
+         * @param auteur       Auteur du document
+         * @param annee        Annee de sortie du document
+         * @param genre        Genre du document
+         * @throws OperationImpossible si certains arguments sont mal initialises
          */
-        public Document(String code, Localisation localisation, 
-                        String titre, String auteur, String annee, Genre genre) 
-                                        throws OperationImpossible {
-                if( code == null || localisation == null || titre == null 
-                                || auteur == null || annee == null || genre == null) {
-                        throw new OperationImpossible("Ctr Document arguments = " 
-                                        + "code : " + code + ", localisation : " + localisation 
-                                        + ", titre : " + titre + ", auteur : " + auteur 
-                                        + ", annee : " + annee + ", genre : " + genre);
+        public Document(String code, Localisation localisation,
+                        String titre, String auteur, String annee, Genre genre)
+                throws OperationImpossible {
+                if (code == null || localisation == null || titre == null
+                        || auteur == null || annee == null || genre == null) {
+                        throw new OperationImpossible("Ctr Document arguments = "
+                                + "code : " + code + ", localisation : " + localisation
+                                + ", titre : " + titre + ", auteur : " + auteur
+                                + ", annee : " + annee + ", genre : " + genre);
                 }
                 this.code = code;
                 this.localisation = localisation;
@@ -94,65 +95,88 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
 
         /**
          * <TT>getCode</TT> retourne le code du document.
+         *
          * @return Code du document
          */
-        public String getCode() { return code; }
+        public String getCode() {
+                return code;
+        }
 
         /**
          * <TT>getTitre</TT> retourne le titre du document.
-         *   @return Titre du document
+         *
+         * @return Titre du document
          */
-        public String getTitre() { return titre; }
+        public String getTitre() {
+                return titre;
+        }
 
         /**
          * <TT>getAuteur</TT> retourne l'auteur du document.
-         *   @return Auteur du document
+         *
+         * @return Auteur du document
          */
-        public String getAuteur() { return auteur; }
+        public String getAuteur() {
+                return auteur;
+        }
 
         /**
          * <TT>getLocalisation</TT> retourne la localisation du document.
-         *   @return Localisation du document
+         *
+         * @return Localisation du document
          */
-        public Localisation getLocalisation() { return localisation; }
+        public Localisation getLocalisation() {
+                return localisation;
+        }
 
         /**
          * <TT>getAnnee</TT> retourne l'annee du document.
-         *   @return Annee du document
+         *
+         * @return Annee du document
          */
-        public String getAnnee() {  return annee; }
+        public String getAnnee() {
+                return annee;
+        }
 
         /**
          * <TT>getGenre</TT> retourne le genre du document.
-         *   @return Genre du document
+         *
+         * @return Genre du document
          */
-        public Genre getGenre() { return genre; }
+        public Genre getGenre() {
+                return genre;
+        }
 
         /**
          * <TT>getNbEmprunts</TT> retourne le nombre d'emprunts du document.
-         *   @return nb emprunts du document
+         *
+         * @return nb emprunts du document
          */
-        public int getNbEmprunts() { return nbEmprunts; }
+        public int getNbEmprunts() {
+                return nbEmprunts;
+        }
 
 
         /**
          * <TT>equals</TT> est une surcharge de <TT>Object.equals</TT>
          * permettant de tester l'egalite de deux documents. Il y a egalite
          * quand les documents ont meme code.
-         *   @param obj Operande droit
-         *   @return true si les objets ont le meme code
+         *
+         * @param obj Operande droit
+         * @return true si les objets ont le meme code
          */
         @Override
         public boolean equals(Object obj) {
                 if (obj == null) return false;
                 if (this == obj) return true;
-                if(!(obj instanceof Document)) return false;
+                if (!(obj instanceof Document)) return false;
                 Document d = (Document) obj;
                 return (code.equals(d.code));
         }
 
         /**
-         * Rewrite hashCode 
+         * Rewrite hashCode
+         *
          * @return int to facilitate hash
          */
         @Override
@@ -165,12 +189,13 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
 
         /**
          * Conversion en chaine de caracteres pour l'affichage.
-         *  @return Document converti en chaine de caracteres
+         *
+         * @return Document converti en chaine de caracteres
          */
         @Override
         public String toString() {
                 String s = "\"" + code + "\" " + titre + " " + auteur + " " + annee
-                                + " " + genre + " " + localisation + " " + nbEmprunts;
+                        + " " + genre + " " + localisation + " " + nbEmprunts;
                 if (empruntable) {
                         s += " (emp ";
                         if (emprunte) {
@@ -220,19 +245,22 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
         /**
          * Retourne vrai si le document est empruntable.
          */
-        public boolean estEmpruntable() { return empruntable; }
+        public boolean estEmpruntable() {
+                return empruntable;
+        }
 
         // Operations du DME
+
         /**
          * <TT>emprunter</TT> est appelee lors de l'emprunt d'un document.
          * Les statistiques sont mises a jour.
          */
-        public boolean emprunter() throws InvariantBroken, OperationImpossible{
+        public boolean emprunter() throws InvariantBroken, OperationImpossible {
                 if (!empruntable) {
                         throw new OperationImpossible("Document non empruntable" + this);
                 }
                 if (emprunte) {
-                        throw new OperationImpossible("Deja Emprunte"+ this);
+                        throw new OperationImpossible("Deja Emprunte" + this);
                 }
                 emprunte = true;
                 genre.emprunter();
@@ -247,17 +275,19 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
         /**
          * Retourne vrai si le document est emprunte.
          */
-        public boolean estEmprunte() { return emprunte; }
+        public boolean estEmprunte() {
+                return emprunte;
+        }
 
         /**
          * <TT>restituer</TT> est appelee lors de la restitution d'un
          * document. La localisation ou ranger le document est affichee.
          */
         public void restituer() throws InvariantBroken, OperationImpossible {
-                if(!empruntable){
+                if (!empruntable) {
                         throw new OperationImpossible("Impossible de restituer un document non empruntable");
                 }
-                if(!emprunte){
+                if (!emprunte) {
                         throw new OperationImpossible("Impossible de restituer un document non emprunte");
                 }
                 emprunte = false;
@@ -266,7 +296,7 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
                         throw new InvariantBroken("Document -" + this);
                 }
                 System.out.println("Document: ranger \"" + titre + "\" en "
-                                + localisation);
+                        + localisation);
         }
 
         /**
@@ -275,7 +305,7 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
          */
         public void afficherStatDocument() {
                 System.out.println("(stat) Nombre d'emprunts du document \"" + titre
-                                + "\" de \"" + auteur + "\" (" + code + ") = " + nbEmprunts);
+                        + "\" de \"" + auteur + "\" (" + code + ") = " + nbEmprunts);
         }
 
         /**
@@ -283,14 +313,14 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
          * des documents pour les sous classes.
          */
         public static void afficherStatistiques() {
-                System.out.println("Audio :"+ Audio.getStat());
-                System.out.println("Video :"+ Video.getStat());
-                System.out.println("Livre :"+ Livre.getStat());
+                System.out.println("Audio :" + Audio.getStat());
+                System.out.println("Video :" + Video.getStat());
+                System.out.println("Livre :" + Livre.getStat());
         }
 
         /**
          * Safety property - emprunte => empruntable
-         * 
+         *
          * @return if the document is in a safe state, i.e respects the invariant
          */
         public boolean invariant() {
