@@ -4,14 +4,14 @@ import java.io.Serializable;
 import main.util.*;
 
 /**
- * La classe <code>Document</code> gere les documents de la main.mediatheque.
+ * La classe <code>Document</code> gere les documents de la mediatheque.
  */
 public abstract class Document implements Empruntable, Serializable, HasInvariant {
 
         private static final long serialVersionUID = 3L;
 
         /**
-         * Code du document, unique dans la main.mediatheque, format libre
+         * Code du document, unique dans la mediatheque, format libre
          */
         private String code;
 
@@ -192,7 +192,7 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
          * Autorise l'emprunt du document.
          */
         public void metEmpruntable() throws OperationImpossible, InvariantBroken {
-                if (empruntable) {
+                if (!empruntable) {
                         throw new OperationImpossible("Document metEmpruntable empruntable" + this);
                 }
                 empruntable = true;
