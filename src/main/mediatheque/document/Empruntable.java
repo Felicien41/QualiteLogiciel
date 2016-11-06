@@ -1,4 +1,4 @@
-package main.mediatheque.document;
+package test.mediatheque.document;
 /**
  * L'interface <TT>Empruntable</TT> donne les operations que
  * tout type de document doit fournir pour pouvoir etre emprunte.

@@ -1,4 +1,4 @@
-package main.mediatheque.document;
+package test.mediatheque.document;
 import main.mediatheque.*;
 import main.util.*;
 /**
