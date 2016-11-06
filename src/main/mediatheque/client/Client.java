@@ -115,6 +115,9 @@ public class Client implements Serializable {
         {
                 this.nom = nom;
                 this.prenom = prenom;
+                lesEmprunts = new Vector<FicheEmprunt>();
+                dateInscription = Datutil.dateDuJour();
+                dateRenouvellement = Datutil.addDate(dateInscription, 365);
         }
 
         /**
@@ -185,7 +188,7 @@ public class Client implements Serializable {
          * @return nombre d'emprunts en retard
          */
         public int getNbEmpruntsEnRetard() {
-                return 0;
+                return nbEmpruntsDepasses;
         }
 
         /**
@@ -410,7 +413,7 @@ public class Client implements Serializable {
          *    @return nombre d'emprunts maximal
          */
         public int nbMaxEmprunt() {
-                return 2; 
+                return catClient.getNbEmpruntMax();
         }
 
         /**
@@ -441,7 +444,7 @@ public class Client implements Serializable {
          */
         public void setCategorie(CategorieClient nCat)
                         throws OperationImpossible {
-                if (nCat.getCodeReducUtilise()) {
+                if (nCat.getCodeReducUtilise() == false) {
                         throw new OperationImpossible("Categorie necessite un code de reduction");
                 }
                 catClient = nCat;
