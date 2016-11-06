@@ -13,8 +13,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by felicien on 06/11/16.
  */
@@ -64,7 +62,9 @@ public class FicheEmpruntTest {
     @Test
     public void modifierClient() throws Exception {
         Client newClient = new Client("Bernard","Lala");
-        client.modifierClient();
+        ficheEmprunt.modifierClient(newClient);
+
+        Assert.assertEquals(newClient,ficheEmprunt.getClient());
     }
 
     @Test
@@ -73,55 +73,18 @@ public class FicheEmpruntTest {
 
     }
 
-    @Test
-    public void restituer() throws Exception {
-
-    }
-
-    @Test
-    public void getClient() throws Exception {
-
-    }
-
-    @Test
-    public void getDocument() throws Exception {
-
-    }
-
-    @Test
-    public void getDateEmprunt() throws Exception {
-
-    }
-
-    @Test
-    public void getDateLimite() throws Exception {
-
-    }
 
     @Test
     public void getDepasse() throws Exception {
-
+        Assert.assertEquals(false,ficheEmprunt.getDepasse());
     }
 
     @Test
     public void getDureeEmprunt() throws Exception {
+        Assert.assertEquals((int) ((ficheEmprunt.getDateLimite().getTime () - ficheEmprunt.getDateEmprunt().getTime ()) / (1000 * 60 * 60 * 24)), ficheEmprunt.getDureeEmprunt());
 
     }
 
-    @Test
-    public void getTarifEmprunt() throws Exception {
-
-    }
-
-    @Test
-    public void changementCategorie() throws Exception {
-
-    }
-
-    @Test
-    public void testtoString() throws Exception {
-
-    }
 
     @Test
     public void afficherStatistiques() throws Exception {
