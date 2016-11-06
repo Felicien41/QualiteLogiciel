@@ -1,4 +1,4 @@
-package test.mediatheque.document;
+package main.mediatheque.document;
 import main.mediatheque.*;
 import java.io.Serializable;
 import main.util.*;

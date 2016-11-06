@@ -9,14 +9,47 @@ import org.junit.Test;
  */
 public class LocalisationTest {
 
+
     @Test
-    public void constructorTest{
+    public void toStringTest() throws Exception {
+
+        Localisation locTest= new Localisation("salle","rayon");
+
+        Assert.assertEquals(locTest.toString(),"Salle/Rayon : salle/rayon");
+
+    }
+
+    @Test
+    public void hashCodeTest() throws Exception {
+
+        Localisation locTest= new Localisation("salle","rayon");
+        Localisation locTest2= new Localisation("salle2","rayon2");
+
+        Assert.assertEquals(locTest.hashCode(),locTest.hashCode());
+        Assert.assertNotEquals(locTest.hashCode(),locTest2.hashCode());
+
+
+    }
+
+    @Test
+    public void equalsTest() throws Exception {
+
+        Localisation locTest= new Localisation("salle","rayon");
+        Localisation locTest2= new Localisation("salle2","rayon2");
+
+        Assert.assertTrue(locTest.equals(locTest));
+        Assert.assertFalse(locTest2.equals(locTest));
+
+
+    }
+
+    @Test
+    public void constructorTest(){
 
         Localisation locTest= new Localisation("salle","rayon");
 
         Assert.assertEquals("salle",locTest.getSalle());
         Assert.assertEquals("rayon",locTest.getRayon());
-
-
     }
+
 }

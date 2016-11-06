@@ -1,6 +1,6 @@
 package main.mediatheque.client;
 
-public class HashClient implements java.io.Serializable{
+public class  HashClient implements java.io.Serializable{
 
         private static final long serialVersionUID = 2L;
 
