@@ -85,10 +85,4 @@ public class FicheEmpruntTest {
 
     }
 
-
-    @Test
-    public void afficherStatistiques() throws Exception {
-
-    }
-
 }
