@@ -52,7 +52,7 @@ public class AudioTest {
         Assert.assertTrue(audio.emprunter());
         Assert.assertEquals(audio.getNbEmprunts() , 1);
         Assert.assertEquals(audio.dureeEmprunt() , 28); //4 semaines
-        Assert.assertEquals(audio.tarifEmprunt(), 1.0);
+        Assert.assertTrue(audio.tarifEmprunt()== 1.0);
 
     }
 }
