@@ -44,7 +44,7 @@ public class ClientTest {
 
     @Test
     public void clientCompletAvecReduction() throws OperationImpossible {
-        CategorieClient categorieClient = new CategorieClient("Michel", 1000, 10.2, 1.1, 1.2, false);
+        CategorieClient categorieClient = new CategorieClient("Michel", 1000, 10.2, 1.1, 1.2, true);
         Client client = new Client("Michel", "Michelle", "Lala", categorieClient, 20);
         Assert.assertEquals("Michel", client.getNom());
         Assert.assertEquals("Michelle", client.getPrenom());

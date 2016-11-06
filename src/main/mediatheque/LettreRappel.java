@@ -39,7 +39,7 @@ public class LettreRappel implements Serializable{
          * Constructeur de lettre de rappel avec le corps minimal
          * le constructeur fait un affichage de la lettre de rappel
          */
-        LettreRappel(String nomMedia, FicheEmprunt emprunt) {
+        public LettreRappel(String nomMedia, FicheEmprunt emprunt) {
                 dateRappel = emprunt.getDateLimite();
                 this.nomMedia = nomMedia;
                 this.enRetard = emprunt;
