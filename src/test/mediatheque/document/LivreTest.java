@@ -51,7 +51,7 @@ public class LivreTest {
         Assert.assertTrue(livre.emprunter());
         Assert.assertEquals(livre.getNbEmprunts() , 1);
         Assert.assertEquals(livre.dureeEmprunt() , 42); //6 semaines
-        Assert.assertEquals(livre.tarifEmprunt(), 0.5);
+        Assert.assertTrue(livre.tarifEmprunt()== 0.5);
 
     }
 }
